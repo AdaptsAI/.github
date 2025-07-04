@@ -11,21 +11,21 @@ Automatically generates Wiki‑style documentation in your Adapts AI (VerifyAI)
 | **Checkout / Setup**     | Fetches your repo and installs Python 3.11 plus runtime dependencies (`requests`, `adaptsapi`).                                                                                                                |
 | **Author e‑mail lookup** | Uses GitHub’s GraphQL API to obtain the PR author’s **organisation‑verified e‑mail** (Enterprise Cloud feature). Falls back to the head‑commit author e‑mail if the user hasn’t registered a verified address. |
 | **Repo intel**           | Calculates repository size in bytes (for metadata) and determines dominant language.                                                                                                                           |
-| **Adapts API call**      | Sends a signed request to Adapts AI’s `/generate_wiki_docs` endpoint so the service can pull the code and build Wiki pages.                                                                                    |
+| **Adapts API call**      | Sends a signed request to Adapts’ `/generate_wiki_docs` endpoint so the service can pull the code and build Wiki pages.                                                                                    |
 
 ---
 
 ## Quick‑start
 
 1. **Copy the workflow file**
-   Save the YAML from [`/.github/workflows/generate‑wiki‑docs.yml`](./generate-wiki-docs.yml) (this repo) into your own repository under the same path.
+   Save the YAML from [`/.github/action.yml`](./action.yml) (this repo) into your own repository under the same path.
 
 2. **Add required secrets**
    Open *Settings ▸ Secrets and variables ▸ Actions* and add:
 
    | Secret                                                         | Where to get it                                                      | Scope needed |
    | -------------------------------------------------------------- | -------------------------------------------------------------------- | ------------ |
-   | `ADAPTS_API_KEY`                                               | From your VerifyAI / Adapts AI console                               | –            |
+   | `ADAPTS_API_KEY`                                               | Contact us at contact@adapts.ai to get an API key.                              | –            |
    | `ENTERPRISE_READ_TOKEN`                                        | **Option A:** Fine‑grained PAT created by an org admin.              |              |
    | **Option B:** Installation token from a GitHub App you manage. | `Organization members: Read‑only` (PAT) · `Members: Read‑only` (App) |              |
 
