@@ -1,7 +1,10 @@
-name: Generate Wiki from Code
-description: Transform your code into comprehensive wiki documentation effortlessly
-icon: book-open
+name: "Generate Wiki from Code"
+description: "Transform your code into comprehensive wiki documentation effortlessly"
+author: "Adapts"
 
+branding: 
+  icon: "book-open"
+  color: "white"
 on:
   pull_request:
     branches: [ main ]
