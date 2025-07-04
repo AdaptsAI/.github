@@ -1,4 +1,4 @@
-name: Generate Wiki Docs
+name: Generate Wiki from Code
 
 on:
   pull_request:
