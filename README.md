@@ -1,8 +1,8 @@
-#Code to Wiki | Generate Wiki Docs 
-<img src="SVG-Black-Text.svg"
-                   alt="Adapts logo"
-                   width="40"
-                   style="vertical-align:middle;">
+#Generate Wiki Docs 
+<h1 style="display:flex; align-items:center; gap:0.4em;">
+  Code&nbsp;to&nbsp;Wiki&nbsp;&nbsp;&nbsp;
+  <img src="SVG-Black-Text.svg" alt="Adapts logo" width="40">
+</h1>
 
 Automatically generates Wiki‑style documentation in @adapts.wiki every time a pull‑request is merged into **`main`**.
 
