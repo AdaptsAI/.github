@@ -1,4 +1,4 @@
-# Generate Wiki Docs – adatps
+# Generate Wiki Docs – adapts
 
 Automatically generates Wiki‑style documentation in @adapts.wiki every time a pull‑request is merged into **`main`**.
 
