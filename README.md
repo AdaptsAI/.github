@@ -1,6 +1,6 @@
-# Generate Wiki Docs – GitHub Action
+# Generate Wiki Docs – adatps
 
-Automatically generates Wiki‑style documentation in your Adapts AI (VerifyAI) tenant every time a pull‑request is merged into **`main`**.
+Automatically generates Wiki‑style documentation in @adapts.wiki every time a pull‑request is merged into **`main`**.
 
 ---
 
