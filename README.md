@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="./images/logo.png" alt="adapts logo" width="120" />
+  <img src="./images/logo.png" alt="adapts logo" width="250" />
 </p>
-<h1 align="center">Generate Wiki Docs – adapts</h1>
+<h1 align="center">Turn Code into Wiki Docs</h1>
 <p align="center">
   Automatically generates Wiki-style documentation in <code>@adapts.wiki</code><br/>
   every time a pull-request is merged into <code>main</code>.
@@ -43,7 +43,7 @@
    </details>
 
    <p align="center">
-     <img src="./images/secrets-setup.png" alt="Secrets setup screenshot" width="600" />
+     <img src="./images/secrets-setup.png" alt="Secrets setup screenshot" width="600" style="border-radius:5px;"/>
    </p>
 
 3. **Verify domain settings**  
@@ -53,7 +53,7 @@
    Merge into `main` and watch for a ✅ Success log entry:
 
    <p align="center">
-     <img src="./images/action-log-success.png" alt="Action run success" width="600" />
+     <img src="./images/action-log-success.png" alt="Action run success" width="600" style="border-radius:5px;"/>
    </p>
 
 ---
@@ -100,11 +100,11 @@
 
 1. Visit [adapts.app](https://adapts.app)  
 2. **Log in** with the **same e-mail** you use on GitHub  
-3. Navigate to **My Documentation** ➡️ **Your Repo Name**  
+3. Navigate to **Application Wiki's** ➡️ **Your Repo Name**  ➡️ **Click on View**  
 4. Enjoy your freshly generated Wiki!
 
 <p align="center">
-  <img src="./images/wiki-home.png" alt="Wiki home screenshot" width="600" />
+  <img src="./images/wiki-home.png" alt="Wiki home screenshot" width="600" style="border-radius:5px;" />
 </p>
 
 ---
