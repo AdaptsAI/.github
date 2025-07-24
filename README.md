@@ -1,7 +1,11 @@
 <p align="center">
-  <img src="./images/logo.png" alt="adapts logo" width="250" />
+  <picture>
+    <source srcset="./images/logo-dark.png" media="(prefers-color-scheme: dark)" />
+    <source srcset="./images/logo-light.png" media="(prefers-color-scheme: light)" />
+    <img src="./images/logo-light.png" alt="adapts logo" width="250" />
+  </picture>
 </p>
-<h1 align="center">Turn Code into Wiki Docs</h1>
+<h1 align="center">Code to Wiki</h1>
 <p align="center">
   Automatically generates Wiki-style documentation in <code>@adapts.wiki</code><br/>
   every time a pull-request is merged into <code>main</code>.
@@ -11,8 +15,18 @@
 
 ## 📖 What the workflow does
 
-<p align="center">
+<!-- <p align="center">
   <img src="./images/workflow-diagram.png" alt="Workflow diagram" width="600" />
+</p> -->
+
+<p align="center">
+```mermaid
+flowchart LR
+  A[Add <code>.github/action.yml</code> to your repo] --> B[Merge a PR into <code>main</code>]
+  B --> C[GitHub Action runs &amp; calls Adapts API]
+  C --> D[✅ Check run status in the **Actions** tab]
+  C --> E[View detailed request status on adapts.app]
+
 </p>
 
 | Stage                    | Purpose                                                                                                                                                                                                        |
