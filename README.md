@@ -15,19 +15,40 @@
 
 ## 📖 What the workflow does
 
-<!-- <p align="center">
-  <img src="./images/workflow-diagram.png" alt="Workflow diagram" width="600" />
-</p> -->
-
-<p align="center">
 ```mermaid
 flowchart LR
-  A[Add <code>.github/action.yml</code> to your repo] --> B[Merge a PR into <code>main</code>]
-  B --> C[GitHub Action runs &amp; calls Adapts API]
-  C --> D[✅ Check run status in the **Actions** tab]
-  C --> E[View detailed request status on adapts.app]
+    %% Subgraph definitions
+    subgraph Setup
+        A[Add <code>.github/action.yml</code> into your repo]
+    end
+    subgraph Trigger
+        B[Merge a PR in main branch]
+    end
+    subgraph Execution
+        C[GitHub Action runs and calls Adapts API]
+    end
+    subgraph Monitoring
+        D[Check Wiki generation progress by logging into adapts.app]
+        E[Once Wiki is generated, click “View” to access it]
+    end
+    subgraph Access
+        F[Login to adapts.wiki using the same email address]
+    end
 
-</p>
+    %% Flow connections
+    A --> B --> C
+    C --> D
+    D --> E
+    E --> F
+    C --> F
+
+    class A setup
+    class B trigger
+    class C exec
+    class D,E monitor
+    class F access
+
+```
 
 | Stage                    | Purpose                                                                                                                                                                                                        |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -56,19 +77,13 @@ flowchart LR
    If your org enforces SAML/OIDC SSO, remember to **authorise** the PAT after creating it.
    </details>
 
-   <p align="center">
-     <img src="./images/secrets-setup.png" alt="Secrets setup screenshot" width="600" style="border-radius:5px;"/>
-   </p>
+   For detailed instructions on adding secrets, see the [official GitHub documentation on using secrets in GitHub Actions](https://docs.github.com/en/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/using-secrets-in-github-actions).
 
 3. **Verify domain settings**  
    Ensure your org has **verified its corporate e-mail domain** and each developer has added that address to GitHub.
 
 4. **Push or merge a PR**  
    Merge into `main` and watch for a ✅ Success log entry:
-
-   <p align="center">
-     <img src="./images/action-log-success.png" alt="Action run success" width="600" style="border-radius:5px;"/>
-   </p>
 
 ---
 
@@ -117,9 +132,6 @@ flowchart LR
 3. Navigate to **Application Wiki's** ➡️ **Your Repo Name**  ➡️ **Click on View**  
 4. Enjoy your freshly generated Wiki!
 
-<p align="center">
-  <img src="./images/wiki-home.png" alt="Wiki home screenshot" width="600" style="border-radius:5px;" />
-</p>
 
 ---
 
