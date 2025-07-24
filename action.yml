@@ -9,10 +9,16 @@ on:
   pull_request:
     branches: [ main ]
     types: [ closed ]
+  push:
+    branches: [ main ]
 
+permissions:
+  contents: read
+  pull-requests: write
+  
 jobs:
   call-adapts-api:
-    if: github.event.pull_request.merged == true      # skip if PR is merely closed
+    if: github.event_name == 'push' || github.event.pull_request.merged == true      # trigger on direct commits or PR merges
     runs-on: ubuntu-latest
 
     steps:
@@ -35,20 +41,26 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.ENTERPRISE_READ_TOKEN }}   # PAT or App token with read:org
         run: |
-          login="${{ github.event.pull_request.user.login }}"
-          org="${{ github.repository_owner }}"
+          # Handle both push and pull_request events
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            login="${{ github.event.pull_request.user.login }}"
+            org="${{ github.repository_owner }}"
 
-          # Single-line GraphQL avoids the UNKNOWN_CHAR error
-          email=$(gh api graphql \
-              -f query='query($login:String!,$org:String!){user(login:$login){organizationVerifiedDomainEmails(login:$org)}}' \
-              -f login="$login" \
-              -f org="$org" \
-              --jq '.data.user.organizationVerifiedDomainEmails[0]')
+            # Single-line GraphQL avoids the UNKNOWN_CHAR error
+            email=$(gh api graphql \
+                -f query='query($login:String!,$org:String!){user(login:$login){organizationVerifiedDomainEmails(login:$org)}}' \
+                -f login="$login" \
+                -f org="$org" \
+                --jq '.data.user.organizationVerifiedDomainEmails[0]')
 
-          # Fallback to HEAD-commit author e-mail if nothing came back
-          if [ -z "$email" ] || [ "$email" = "null" ]; then
-            sha="${{ github.event.pull_request.head.sha }}"
-            email=$(git show -s --format='%ae' "$sha")
+            # Fallback to HEAD-commit author e-mail if nothing came back
+            if [ -z "$email" ] || [ "$email" = "null" ]; then
+              sha="${{ github.event.pull_request.head.sha }}"
+              email=$(git show -s --format='%ae' "$sha")
+            fi
+          else
+            # For push events, use the commit author email
+            email=$(git show -s --format='%ae' "${{ github.sha }}")
           fi
 
           echo "email=$email" >>"$GITHUB_OUTPUT"
@@ -67,6 +79,7 @@ jobs:
           REPO_LANG:      ${{ steps.repo_lang.outputs.language }}
           REPO_SIZE:      ${{ steps.repo_size.outputs.size }}
           REFRESH_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+          PAT: ${{secrets.ENTERPRISE_READ_TOKEN}}
         run: |
           python <<'PY'
           import os, json
@@ -87,9 +100,10 @@ jobs:
                   "branch": branch,
                   "size": os.getenv("REPO_SIZE"),
                   "language": os.getenv("REPO_LANG") or "Unknown",
-                  "is_private": False,
+                  "is_private": True,
                   "git_provider_type": "github",
                   "refresh_token": os.getenv("REFRESH_TOKEN"),
+                  "personal_access_token": os.environ["PAT"]
               },
           }
 
