@@ -3,11 +3,13 @@
     <img src="./images/logo-light.png" alt="adapts logo" width="250" />
   </picture>
 </p>
+
 <h1 align="center">Code to Wiki</h1>
 <p align="center">
-  Automatically generates Wiki-style documentation in <code>@adapts.wiki</code><br/>
+  Automatically generates Wiki-style documentation in <a href="https://adapts.wiki" target="_blank">adapts.wiki</a><br/>
   every time a pull-request is merged into <code>main</code>.
 </p>
+
 
 ---
 
