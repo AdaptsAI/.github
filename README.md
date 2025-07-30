@@ -1,7 +1,5 @@
 <p align="center">
   <picture>
-    <source srcset="./images/logo-dark.png" media="(prefers-color-scheme: dark)" />
-    <source srcset="./images/logo-light.png" media="(prefers-color-scheme: light)" />
     <img src="./images/logo-light.png" alt="adapts logo" width="250" />
   </picture>
 </p>
