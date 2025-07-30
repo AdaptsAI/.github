@@ -61,10 +61,13 @@ flowchart LR
 
 ## ⚡ Quick-start
 
-1. **Copy the workflow file**  
+1. **Signup for Adapts: Code to Wiki**  
+   Signup at [`adapts.app`](https://adapts.app) with your github email address. 
+
+2. **Copy the workflow file**  
    Save [`.github/action.yml`](./action.yml) into your own repo under the same path.
 
-2. **Add required secrets**  
+3. **Add required secrets**  
    Go to *Settings ▸ Secrets and variables ▸ Actions* and add:
 
    | Secret                  | Where to get it                              |
@@ -79,10 +82,10 @@ flowchart LR
 
    For detailed instructions on adding secrets, see the [official GitHub documentation on using secrets in GitHub Actions](https://docs.github.com/en/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/using-secrets-in-github-actions).
 
-3. **Verify domain settings**  
+4. **Verify domain settings**  
    Ensure your org has **verified its corporate e-mail domain** and each developer has added that address to GitHub.
 
-4. **Push or merge a PR**  
+5. **Push or merge a PR**  
    Merge into `main` and watch for a ✅ Success log entry:
 
 ---
