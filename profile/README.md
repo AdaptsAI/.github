@@ -18,7 +18,7 @@ Automatically generates Wiki‑style documentation in your Adapts AI (VerifyAI)
 ## Quick‑start
 
 1. **Copy the workflow file**
-   Save the YAML from [`/.github/action.yml`](./action.yml) (this repo) into your own repository under the same path.
+   Save the YAML from [`/.github/workflows/action.yml`](./action.yml) (this repo) into your own repository under the same path.
 
 2. **Add required secrets**
    Open *Settings ▸ Secrets and variables ▸ Actions* and add:

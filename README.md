@@ -65,7 +65,7 @@ flowchart LR
    Signup at [`adapts.app`](https://adapts.app) with your github email address. 
 
 2. **Copy the workflow file**  
-   Save [`.github/action.yml`](./action.yml) into your own repo under the same path.
+   Save [`.github/workflows/action.yml`](./action.yml) into your own repo under the same path.
 
 3. **Add required secrets**  
    Go to *Settings ▸ Secrets and variables ▸ Actions* and add:
