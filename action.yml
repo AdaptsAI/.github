@@ -1,10 +1,5 @@
-name: "Generate Wiki from Code"
-description: "Transform your code into comprehensive wiki documentation effortlessly"
-author: "Adapts"
+name: Generate Wiki from Code
 
-branding: 
-  icon: "book-open"
-  color: "white"
 on:
   pull_request:
     branches: [ main ]
@@ -15,7 +10,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
-  
+
 jobs:
   call-adapts-api:
     if: github.event_name == 'push' || github.event.pull_request.merged == true      # trigger on direct commits or PR merges
@@ -36,7 +31,7 @@ jobs:
           # gh CLI comes pre‑installed on GitHub‑hosted runners
 
       # ───────────────────── Fetch developer e‑mail ─────────────────────
-      - name: Get PR author e-mail (enterprise)
+      - name: Get author e-mail (enterprise)
         id: pr_author
         env:
           GH_TOKEN: ${{ secrets.ENTERPRISE_READ_TOKEN }}   # PAT or App token with read:org
