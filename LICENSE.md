@@ -1,0 +1,1 @@
+© Adapts. All rights reserved. Use is subject to Adapts's [Commercial Terms of Service](https://adapts.ai/terms-of-use/).
