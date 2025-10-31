@@ -19,7 +19,7 @@
 flowchart LR
     %% Subgraph definitions
     subgraph Setup
-        A[Add <code>.github/action.yml</code> into your repo]
+        A[Add <code>.github/workflows/action.yml</code> into your repo]
     end
     subgraph Trigger
         B[Merge a PR in main branch]
