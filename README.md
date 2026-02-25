@@ -33,11 +33,56 @@
 
 ## 🚀 Latest Releases
 
-> _Release notes will appear here. Stay tuned!_
+<details>
+<summary><strong>Context Enhancement: Multi-wiki chat context</strong></summary>
 
-| Version | Date | Highlights |
-| ------- | ---- | ---------- |
-| –       | –    | Placeholder — update with each release |
+### What's new
+
+_Context Enhancement: Users can now choose upto 3 different wikis to include in their assistant's chat context to get more relevant output._
+
+### Why did we add this? 
+
+With an even wider context it will be easier for 
+> Developers to avoid things like breaking API contracts and duplicating business logic across services 
+> Architects to avoid architecture drift and cross-service tight coupling
+
+### Scope
+
+This is limited to the web app in the absence of future updates after February 25, 2026. 
+This feature will not be applicable to old conversations. 
+
+### How to use
+
+1. Open a new chat conversation. The wiki selection dropdown now says "Select one of more wikis."
+
+   <img width="350" height="137.5" alt="image" src="https://github.com/user-attachments/assets/50f2a029-dd84-4926-99f6-2dbc8bc94541" />
+
+3. If you know your wiki names you can type its name to search and select, as show below
+
+   <img width="350" height="202.4" alt="image" src="https://github.com/user-attachments/assets/c253b955-f594-4643-9c20-d1dc14a1251b" />
+
+  Or, you can hover over service names to choose the wiki(s) you want to include as below
+
+  <img width="350" height="169.15" alt="image" src="https://github.com/user-attachments/assets/08612737-df5c-4dbf-9803-16e80d53478a" />
+
+4. Once you choose your wikis and model, you can continue as usual. 
+
+</details>
+
+<details> 
+<summary><strong>Documentation Improvement: Workflow Visualizations</strong> </summary>
+
+### What's New 
+
+_Adapts Code-to-Wiki now traces workflows from entry points through all functions, inputs, and outputs within repositories_
+
+### Why did we add this?
+
+**Feature Sunsetting & Migration** Developers can now identify all components involved in specific features, making it easier to plan modernization efforts and ensure no business logic is missed during migrations.
+**Technical Debt Cleanup** Developers can discover dead code—functions and classes that aren't referenced in any workflows—so you can safely remove unused code without business impact.
+**Architecture Understanding** Architects can gain clear visibility into how your application works at a detailed level, helping developers and product managers understand complex workflows across your entire repository
+
+</details>
 
 ---
 
@@ -138,11 +183,8 @@ You should see the following notification at the center of your browser screen. 
 1. You will start seeing the Adapts icon in the left panel's dropdown . Click on it and the Login/signup screen will appear.
 
 <img width="350" height="250" alt="image" src="https://github.com/user-attachments/assets/d48bd00a-d5b0-4c33-a048-19643b40dcba" />
-<br>
-|<br>
-|<br>
-|<br>
-v<br>
+
+<p align="center">↓</p>
 
 <img width="350" height="318" alt="image" src="https://github.com/user-attachments/assets/f0c03625-4bb5-4b55-b232-0185e75c5c62" />
 
@@ -192,11 +234,7 @@ You should see the following notification at the center of your browser screen. 
 
 <img width="350" height="390" alt="image" src="https://github.com/user-attachments/assets/3213dca9-450c-4544-9a72-48041ee2ef33" />
 
-<br>
-| <br>
-| <br>
-|<br>
-v<br>
+<p align="center">↓</p>
 
 <img width="350" height="318" alt="image" src="https://github.com/user-attachments/assets/f0c03625-4bb5-4b55-b232-0185e75c5c62" />
 
@@ -246,7 +284,8 @@ You can:
 
 <img width="353" height="721" alt="image" src="https://github.com/user-attachments/assets/a5c21630-5c83-4172-8f86-6b3f977e256e" />
 
-Additionally, you can also use the buttons hightlighted below to
+Additionally, you can also use the buttons hightlighted below to:
+
 - View Repo
 - View Wiki
 
@@ -265,7 +304,6 @@ Right above the chat window, you can see options to:
 
 <img width="700" height="186" alt="image" src="https://github.com/user-attachments/assets/160d9317-59e3-41ba-a591-c8959a0e2dac" />
 
-
 Congratulations! you're all set!
 
 For further feedback please contact support@adapts.ai
@@ -282,7 +320,7 @@ Automatically generates Wiki-style documentation in [adapts.wiki](https://adapts
 flowchart LR
     %% Subgraph definitions
     subgraph Setup
-        A[Add <code>.github/workflows/action.yml</code> into your repo]
+        A[Add .github/workflows/action.yml into your repo]
     end
     subgraph Trigger
         B[Merge a PR in main branch]
@@ -292,7 +330,7 @@ flowchart LR
     end
     subgraph Monitoring
         D[Check Wiki generation progress by logging into adapts.app]
-        E[Once Wiki is generated, click "View" to access it]
+        E[Once Wiki is generated, click View to access it]
     end
     subgraph Access
         F[Login to adapts.wiki using the same email address]
