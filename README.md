@@ -4,191 +4,74 @@
   </picture>
 </p>
 
-<h1 align="center">Code to Wiki</h1>
+<h1 align="center">Adapts</h1>
 <p align="center">
-  Automatically generates Wiki-style documentation in <a href="https://adapts.wiki" target="_blank">adapts.wiki</a><br/>
-  every time a pull-request is merged into <code>main</code>.
+  Chat with your wikis straight from your IDE &nbsp;·&nbsp; Auto-generate Wiki-style docs on every merge<br/>
+  <a href="https://adapts.wiki" target="_blank">adapts.wiki</a> &nbsp;|&nbsp; <a href="https://adapts.app" target="_blank">adapts.app</a>
 </p>
 
+---
+
+## Contents
+
+- [Latest Releases](#latest-releases)
+- [Getting Started — Chat Assistant](#getting-started--chat-assistant)
+  - [IntelliJ](#intellij)
+  - [Cursor](#cursor)
+  - [VSCode](#vscode)
+  - [How To Use The Assistant](#how-to-use-the-adapts-assistant)
+- [Wiki Generation — Code to Wiki](#wiki-generation--code-to-wiki)
+  - [What the workflow does](#what-the-workflow-does)
+  - [Quick-start](#quick-start)
+  - [Customisation Tips](#customisation-tips)
+  - [Troubleshooting](#troubleshooting)
+  - [Security Considerations](#security-considerations)
+  - [Accessing your Wiki](#accessing-your-wiki)
+  - [Support / Questions](#support--questions)
 
 ---
 
-## 📖 What the workflow does
+## 🚀 Latest Releases
 
-```mermaid
-flowchart LR
-    %% Subgraph definitions
-    subgraph Setup
-        A[Add <code>.github/workflows/action.yml</code> into your repo]
-    end
-    subgraph Trigger
-        B[Merge a PR in main branch]
-    end
-    subgraph Execution
-        C[GitHub Action runs and calls Adapts API]
-    end
-    subgraph Monitoring
-        D[Check Wiki generation progress by logging into adapts.app]
-        E[Once Wiki is generated, click “View” to access it]
-    end
-    subgraph Access
-        F[Login to adapts.wiki using the same email address]
-    end
+> _Release notes will appear here. Stay tuned!_
 
-    %% Flow connections
-    A --> B --> C
-    C --> D
-    D --> E
-    E --> F
-    C --> F
-
-    class A setup
-    class B trigger
-    class C exec
-    class D,E monitor
-    class F access
-
-```
-
-| Stage                    | Purpose                                                                                                                                                                                                        |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Checkout / Setup**     | Fetches your repo and installs Python 3.11 plus runtime dependencies (`requests`, `adaptsapi`).                                                                                                                |
-| **Author e-mail lookup** | Uses GitHub’s GraphQL API to obtain the PR author’s **organisation-verified e-mail** (Enterprise Cloud feature). Falls back to the head-commit author e-mail if needed.                                       |
-| **Repo intel**           | Calculates repository size in bytes (for metadata) and determines dominant language.                                                                                                                           |
-| **Adapts API call**      | Sends a signed request to Adapts’ `/generate_wiki_docs` endpoint so the service can pull the code and build Wiki pages.                                                                                        |
+| Version | Date | Highlights |
+| ------- | ---- | ---------- |
+| –       | –    | Placeholder — update with each release |
 
 ---
 
-## ⚡ Quick-start
+## 💬 Getting Started — Chat Assistant
 
-1. **Signup for Adapts: Code to Wiki**  
-   Signup at [`adapts.app`](https://adapts.app) with your github email address. 
+Chat with your wikis straight from your IDE.
 
-2. **Copy the workflow file**  
-   Save [`.github/workflows/action.yml`](./action.yml) into your own repo under the same path.
-
-3. **Add required secrets**  
-   Go to *Settings ▸ Secrets and variables ▸ Actions* and add:
-
-   | Secret                  | Where to get it                              |
-   | ----------------------- | -------------------------------------------- |
-   | `ADAPTS_API_KEY`        | Request from <contact@adapts.ai>             |
-   | `ENTERPRISE_READ_TOKEN` | Fine-grained PAT (org admin) **or** GitHub App installation token |
-
-   <details>
-   <summary><strong>SSO note</strong></summary>
-   If your org enforces SAML/OIDC SSO, remember to **authorise** the PAT after creating it.
-   </details>
-
-   For detailed instructions on adding secrets, see the [official GitHub documentation on using secrets in GitHub Actions](https://docs.github.com/en/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/using-secrets-in-github-actions).
-
-4. **Verify domain settings**  
-   Ensure your org has **verified its corporate e-mail domain** and each developer has added that address to GitHub.
-
-5. **Push or merge a PR**  
-   Merge into `main` and watch for a ✅ Success log entry:
-
----
-
-## ⚙️ Environment Variables
-
-| Name                       | Source                         | Purpose                                          |
-| -------------------------- | ------------------------------ | ------------------------------------------------ |
-| `GH_TOKEN`                 | `ENTERPRISE_READ_TOKEN` secret | Used by `gh` CLI for GraphQL calls               |
-| `ADAPTS_API_KEY`           | Secret                         | Bearer token for Adapts AI API                   |
-| GitHub defaults (`GITHUB_…`)| Provided by Actions            | Context for repo, actor, etc.                    |
-
----
-
-## 🛠️ Customisation Tips
-
-- **Target branch**: edit `on.pull_request.branches`.  
-- **Monorepos**: document sub-directories by filtering or passing extra metadata.  
-- **Non-Enterprise orgs**: remove GraphQL step and rely on commit e-mails.  
-- **Self-hosted runners**: install the GitHub CLI or add an explicit install step.
-
----
-
-## 🐞 Troubleshooting
-
-| Symptom                                                           | Likely cause                              | Fix                                                                                   |
-| ----------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------- |
-| `gh: Expected NAME, actual: UNKNOWN_CHAR`                         | Multiline GraphQL passed incorrectly      | Keep the query on **one line**                                                       |
-| `organizationVerifiedDomainEmails` unavailable                    | Non-Enterprise plan                       | Remove this step or migrate to Enterprise Cloud                                       |
-| API returns `401`                                                 | Missing/invalid `ADAPTS_API_KEY`          | Re-issue key in Adapts AI console                                                     |
-| Author e-mail is `noreply@users.github.com`                       | Developer hasn’t added corporate e-mail   | Ask them to add it via GitHub Profile ▸ Emails                                       |
-
----
-
-## 🔐 Security considerations
-
-- Tokens are **read-only** and never leave GitHub infra.  
-- Only **metadata** (URL, size, language) is sent to Adapts AI.  
-- Source code is fetched by Adapts AI via the provided GitHub token.
-
----
-
-## 🌐 Accessing your Wiki
-
-1. Visit [adapts.app](https://adapts.app)  
-2. **Log in** with the **same e-mail** you use on GitHub  
-3. Navigate to **Application Wiki's** ➡️ **Your Repo Name**  ➡️ **Click on View**  
-4. Enjoy your freshly generated Wiki!
-
-
----
-
-## ❓ Support / Questions
-
-Open an issue in this repo or email <support@adapts.ai> with your workflow logs (mask secrets) and we’ll help you get set up.
-
----
-
-_Ready to give it a spin? Merge into `main` and watch your docs appear!_  
-<br><br><br><br>
-
-<p align="center">
-  <picture>
-    <img src="./images/logo-light.png" alt="adapts logo" width="250" />
-  </picture>
-</p>
-
-<h1 align="center">Adapts Assistant</h1>
-<p align="center">
-  Chat with your wikis straight from your IDE.
-</p>
-
-
----
-
-# Getting Started
-
-## Plugins
+### Plugins
 
 1. [IntelliJ](#intellij)
 2. [Cursor](#cursor)
 3. [VSCode](#vscode)
 4. [How To Use The Assistant](#how-to-use-the-adapts-assistant)
 
-### IntelliJ 
+---
 
+### IntelliJ
 
 IntelliJ IDE should be on the version: 2025 +
 
 Browsers: Chrome and Edge
 
-### Plugin Installation for IntelliJ
+#### Plugin Installation for IntelliJ
 
 1. Go to Setting Icon. Click on the Plugins option on the IntelliJ platform.
 
 <img width="394" height="371" alt="image" src="https://github.com/user-attachments/assets/34ed6b63-8b45-466f-a9d4-a0668a5f5f9c" />
 <br>
 
-2. Go to Marketplace option and search “Adapts Assistant”.
+2. Go to Marketplace option and search "Adapts Assistant".
 
 <img width="1024" height="275" alt="image" src="https://github.com/user-attachments/assets/2bd285df-fad2-4aed-acda-73ef1771a015" />
 
-3. Click “Apply” and then “Ok”.
+3. Click "Apply" and then "Ok".
 
 <img width="629" height="328" alt="image" src="https://github.com/user-attachments/assets/23af5204-12b4-471f-9dfc-3cedd358370a" />
 
@@ -196,7 +79,7 @@ Browsers: Chrome and Edge
 
 <img width="385" height="393" alt="image" src="https://github.com/user-attachments/assets/3b778829-a741-4688-9d67-3bba5ee00a55" />
 
-### Account Setup
+#### Account Setup
 
 > ⚠️ Mac Users, please choose **Chrome** as your default browser before beginning the login process.
 
@@ -228,16 +111,17 @@ You should see the following notification at the center of your browser screen. 
 
 <img width="640" height="386" alt="image" src="https://github.com/user-attachments/assets/bd1a75dd-ce0c-4240-9762-b52949ec2d4b" />
 
+---
+
 ### Cursor
 
-### Plugin Installation for Cursor
+#### Plugin Installation for Cursor
 
 1. Click on the Marketplace Icon at the top of the left panel.
 
-
 <img width="350" height="300" alt="image" src="https://github.com/user-attachments/assets/603dc13b-9e88-47f9-b2a6-82fb58b8906c" />
 
-2. Once in the marketplace, search “Adapts Assistant”.
+2. Once in the marketplace, search "Adapts Assistant".
 
 <img width="350" height="300" alt="image" src="https://github.com/user-attachments/assets/28afa995-c7a8-4f9f-9668-8c135de6d395" />
 
@@ -247,13 +131,11 @@ You should see the following notification at the center of your browser screen. 
 
 <img width="350" height="252" alt="image" src="https://github.com/user-attachments/assets/be0739b3-a9e9-42fa-a8a6-bc5b17d89419" />
 
-
-### Account Setup
+#### Account Setup
 
 > ⚠️ Mac Users, please choose **Chrome** as your default browser before beginning the sign-in/sign-up process.
 
 1. You will start seeing the Adapts icon in the left panel's dropdown . Click on it and the Login/signup screen will appear.
-
 
 <img width="350" height="250" alt="image" src="https://github.com/user-attachments/assets/d48bd00a-d5b0-4c33-a048-19643b40dcba" />
 <br>
@@ -288,20 +170,21 @@ You should see the following notification at the center of your browser screen. 
 
 <img width="350" height="212" alt="image" src="https://github.com/user-attachments/assets/bd1a75dd-ce0c-4240-9762-b52949ec2d4b" />
 
+---
 
 ### VSCode
 
-### Plugin Installation for VSCode
+#### Plugin Installation for VSCode
 
 1. Click on the Marketplace Icon in the left panel.
 
 <img width="350" height="358" alt="image" src="https://github.com/user-attachments/assets/7e396e51-87ff-4571-b8ed-9464f039c57c" />
 
-2. Once in the marketplace, search “Adapts”. The Adapts app should be the first search result. Click on install. 
+2. Once in the marketplace, search "Adapts". The Adapts app should be the first search result. Click on install.
 
 <img width="374" height="220" alt="image" src="https://github.com/user-attachments/assets/d3c6d009-88d7-4db1-804b-aa193ffa1ca2" />
 
-### Account Setup
+#### Account Setup
 
 > ⚠️ Mac Users, please choose **Chrome** as your default browser before beginning the sign-in/sign-up process.
 
@@ -341,7 +224,9 @@ You should see the following notification at the center of your browser screen. 
 
 <img width="350" height="212" alt="image" src="https://github.com/user-attachments/assets/bd1a75dd-ce0c-4240-9762-b52949ec2d4b" />
 
-# How to use the Adapts Assistant
+---
+
+### How to use the Adapts Assistant
 
 Once logged in, you should see a chat window.
 
@@ -353,7 +238,7 @@ Once logged in, you should see a chat window.
 
 <img width="350" height="525" alt="image" src="https://github.com/user-attachments/assets/2baef725-d56d-44e5-9bf7-29c8a195e92c" />
 
-After selecting the wiki, you will see the screen below. 
+After selecting the wiki, you will see the screen below.
 You can:
 
 - Ask questions
@@ -361,7 +246,7 @@ You can:
 
 <img width="353" height="721" alt="image" src="https://github.com/user-attachments/assets/a5c21630-5c83-4172-8f86-6b3f977e256e" />
 
-Additionally, you can also use the buttons hightlighted below to 
+Additionally, you can also use the buttons hightlighted below to
 - View Repo
 - View Wiki
 
@@ -369,7 +254,7 @@ Additionally, you can also use the buttons hightlighted below to
 
 
 > ⚠️ As of version 1.0.4, you may choose one wiki in every chat. If you would like to ask questions about a new wiki, you will need to start a new chat. We are currently wokring on
-> releasing to allow multi-wiki selection in the same chat. 
+> releasing to allow multi-wiki selection in the same chat.
 
 Right above the chat window, you can see options to:
 
@@ -381,7 +266,147 @@ Right above the chat window, you can see options to:
 <img width="700" height="186" alt="image" src="https://github.com/user-attachments/assets/160d9317-59e3-41ba-a591-c8959a0e2dac" />
 
 
-Congratulations! you’re all set!
+Congratulations! you're all set!
 
 For further feedback please contact support@adapts.ai
 
+---
+
+## 📖 Wiki Generation — Code to Wiki
+
+Automatically generates Wiki-style documentation in [adapts.wiki](https://adapts.wiki) every time a pull-request is merged into `main`.
+
+### What the workflow does
+
+```mermaid
+flowchart LR
+    %% Subgraph definitions
+    subgraph Setup
+        A[Add <code>.github/workflows/action.yml</code> into your repo]
+    end
+    subgraph Trigger
+        B[Merge a PR in main branch]
+    end
+    subgraph Execution
+        C[GitHub Action runs and calls Adapts API]
+    end
+    subgraph Monitoring
+        D[Check Wiki generation progress by logging into adapts.app]
+        E[Once Wiki is generated, click "View" to access it]
+    end
+    subgraph Access
+        F[Login to adapts.wiki using the same email address]
+    end
+
+    %% Flow connections
+    A --> B --> C
+    C --> D
+    D --> E
+    E --> F
+    C --> F
+
+    class A setup
+    class B trigger
+    class C exec
+    class D,E monitor
+    class F access
+
+```
+
+| Stage                    | Purpose                                                                                                                                                                                                        |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Checkout / Setup**     | Fetches your repo and installs Python 3.11 plus runtime dependencies (`requests`, `adaptsapi`).                                                                                                                |
+| **Author e-mail lookup** | Uses GitHub's GraphQL API to obtain the PR author's **organisation-verified e-mail** (Enterprise Cloud feature). Falls back to the head-commit author e-mail if needed.                                       |
+| **Repo intel**           | Calculates repository size in bytes (for metadata) and determines dominant language.                                                                                                                           |
+| **Adapts API call**      | Sends a signed request to Adapts' `/generate_wiki_docs` endpoint so the service can pull the code and build Wiki pages.                                                                                        |
+
+---
+
+### ⚡ Quick-start
+
+1. **Signup for Adapts: Code to Wiki**
+   Signup at [`adapts.app`](https://adapts.app) with your github email address.
+
+2. **Copy the workflow file**
+   Save [`.github/workflows/action.yml`](./action.yml) into your own repo under the same path.
+
+3. **Add required secrets**
+   Go to *Settings ▸ Secrets and variables ▸ Actions* and add:
+
+   | Secret                  | Where to get it                              |
+   | ----------------------- | -------------------------------------------- |
+   | `ADAPTS_API_KEY`        | Request from <contact@adapts.ai>             |
+   | `ENTERPRISE_READ_TOKEN` | Fine-grained PAT (org admin) **or** GitHub App installation token |
+
+   <details>
+   <summary><strong>SSO note</strong></summary>
+   If your org enforces SAML/OIDC SSO, remember to <strong>authorise</strong> the PAT after creating it.
+   </details>
+
+   For detailed instructions on adding secrets, see the [official GitHub documentation on using secrets in GitHub Actions](https://docs.github.com/en/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/using-secrets-in-github-actions).
+
+4. **Verify domain settings**
+   Ensure your org has **verified its corporate e-mail domain** and each developer has added that address to GitHub.
+
+5. **Push or merge a PR**
+   Merge into `main` and watch for a ✅ Success log entry.
+
+---
+
+<details>
+<summary><strong>⚙️ Environment Variables</strong></summary>
+
+| Name                       | Source                         | Purpose                                          |
+| -------------------------- | ------------------------------ | ------------------------------------------------ |
+| `GH_TOKEN`                 | `ENTERPRISE_READ_TOKEN` secret | Used by `gh` CLI for GraphQL calls               |
+| `ADAPTS_API_KEY`           | Secret                         | Bearer token for Adapts AI API                   |
+| GitHub defaults (`GITHUB_…`)| Provided by Actions            | Context for repo, actor, etc.                    |
+
+</details>
+
+---
+
+### 🛠️ Customisation Tips
+
+- **Target branch**: edit `on.pull_request.branches`.
+- **Monorepos**: document sub-directories by filtering or passing extra metadata.
+- **Non-Enterprise orgs**: remove GraphQL step and rely on commit e-mails.
+- **Self-hosted runners**: install the GitHub CLI or add an explicit install step.
+
+---
+
+### 🐞 Troubleshooting
+
+| Symptom                                                           | Likely cause                              | Fix                                                                                   |
+| ----------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------- |
+| `gh: Expected NAME, actual: UNKNOWN_CHAR`                         | Multiline GraphQL passed incorrectly      | Keep the query on **one line**                                                       |
+| `organizationVerifiedDomainEmails` unavailable                    | Non-Enterprise plan                       | Remove this step or migrate to Enterprise Cloud                                       |
+| API returns `401`                                                 | Missing/invalid `ADAPTS_API_KEY`          | Re-issue key in Adapts AI console                                                     |
+| Author e-mail is `noreply@users.github.com`                       | Developer hasn't added corporate e-mail   | Ask them to add it via GitHub Profile ▸ Emails                                       |
+
+---
+
+### 🔐 Security Considerations
+
+- Tokens are **read-only** and never leave GitHub infra.
+- Only **metadata** (URL, size, language) is sent to Adapts AI.
+- Source code is fetched by Adapts AI via the provided GitHub token.
+
+---
+
+### 🌐 Accessing your Wiki
+
+1. Visit [adapts.app](https://adapts.app)
+2. **Log in** with the **same e-mail** you use on GitHub
+3. Navigate to **Application Wiki's** ➡️ **Your Repo Name** ➡️ **Click on View**
+4. Enjoy your freshly generated Wiki!
+
+---
+
+### ❓ Support / Questions
+
+Open an issue in this repo or email <support@adapts.ai> with your workflow logs (mask secrets) and we'll help you get set up.
+
+---
+
+_Ready to give it a spin? Merge into `main` and watch your docs appear!_
