@@ -14,12 +14,11 @@
 
 ## Contents
 
-- [Latest Releases](#latest-releases)
-- [Getting Started — Chat Assistant](#getting-started--chat-assistant)
-  - [IntelliJ](#intellij)
-  - [Cursor](#cursor)
-  - [VSCode](#vscode)
-  - [How To Use The Assistant](#how-to-use-the-adapts-assistant)
+- [What is Adapts?](#what-is-adapts)
+- [Getting Started — Chat Assistant](#getting-started-chat-assistant)
+  - [Install the Plugin](#install-the-plugin)
+  - [Account Setup](#account-setup)
+  - [Using the Assistant](#how-to-use-the-adapts-assistant)
 - [Wiki Generation — Code to Wiki](#wiki-generation--code-to-wiki)
   - [What the workflow does](#what-the-workflow-does)
   - [Quick-start](#quick-start)
@@ -27,92 +26,45 @@
   - [Troubleshooting](#troubleshooting)
   - [Security Considerations](#security-considerations)
   - [Accessing your Wiki](#accessing-your-wiki)
-  - [Support / Questions](#support--questions)
+- [Latest Releases](#latest-releases)
+- [Support / Questions](#support--questions)View the source repo or the generated wiki
+
 
 ---
 
-## 🚀 Latest Releases
+## What is Adapts?
 
-<details>
-<summary><strong>Context Enhancement: Multi-wiki chat context</strong></summary>
+**Adapts** turns your codebase into living documentation — automatically.
 
-### What's new
+- **Chat Assistant** — Ask questions about your codebase in natural language, right from IntelliJ, Cursor, or VSCode. Powered by wikis generated from your code.
+- **Code to Wiki** — Every time a PR merges into `main`, a GitHub Action generates up-to-date Wiki-style documentation and publishes it to [adapts.wiki](https://adapts.wiki).
 
-_Context Enhancement: Users can now choose upto 3 different wikis to include in their assistant's chat context to get more relevant output._
-
-### Why did we add this? 
-
-With an even wider context it will be easier for 
-> Developers to avoid things like breaking API contracts and duplicating business logic across services 
-> Architects to avoid architecture drift and cross-service tight coupling
-
-### Scope
-
-This is limited to the web app in the absence of future updates after February 25, 2026. 
-This feature will not be applicable to old conversations. 
-
-### How to use
-
-1. Open a new chat conversation. The wiki selection dropdown now says "Select one of more wikis."
-
-   <img width="350" height="137.5" alt="image" src="https://github.com/user-attachments/assets/50f2a029-dd84-4926-99f6-2dbc8bc94541" />
-
-3. If you know your wiki names you can type its name to search and select, as show below
-
-   <img width="350" height="202.4" alt="image" src="https://github.com/user-attachments/assets/c253b955-f594-4643-9c20-d1dc14a1251b" />
-
-  Or, you can hover over service names to choose the wiki(s) you want to include as below
-
-  <img width="350" height="169.15" alt="image" src="https://github.com/user-attachments/assets/08612737-df5c-4dbf-9803-16e80d53478a" />
-
-4. Once you choose your wikis and model, you can continue as usual. 
-
-</details>
-
-<details> 
-<summary><strong>Documentation Improvement: Workflow Visualizations</strong> </summary>
-
-### What's New 
-
-_Adapts Code-to-Wiki now traces workflows from entry points through all functions, inputs, and outputs within repositories_
-
-### Why did we add this?
-
-**Feature Sunsetting & Migration** Developers can now identify all components involved in specific features, making it easier to plan modernization efforts and ensure no business logic is missed during migrations.
-**Technical Debt Cleanup** Developers can discover dead code—functions and classes that aren't referenced in any workflows—so you can safely remove unused code without business impact.
-**Architecture Understanding** Architects can gain clear visibility into how your application works at a detailed level, helping developers and product managers understand complex workflows across your entire repository
-
-</details>
+No context-switching. No stale docs. Just merge and go.
 
 ---
 
-## 💬 Getting Started — Chat Assistant
+## 💬Getting Started Chat Assistant
 
 Chat with your wikis straight from your IDE.
 
-### Plugins
+### Install the Plugin
 
-1. [IntelliJ](#intellij)
-2. [Cursor](#cursor)
-3. [VSCode](#vscode)
-4. [How To Use The Assistant](#how-to-use-the-adapts-assistant)
+| IDE | How to install | Min version | Latest Version |
+| --- | -------------- | ----------- | ----------- | 
+| **IntelliJ** | *Settings ▸ Plugins ▸ Marketplace* — search **"Adapts Assistant"** | 2025+ | 1.0.6
+| **Cursor** | Marketplace panel — search **"Adapts Assistant"** | — | 0.0.3
+| **VSCode** | Extensions panel — search **"Adapts"** | — | 0.0.3
 
----
+<details>
+<summary><strong>IntelliJ — step-by-step screenshots</strong></summary>
 
-### IntelliJ
+Browsers supported: Chrome and Edge
 
-IntelliJ IDE should be on the version: 2025 +
-
-Browsers: Chrome and Edge
-
-#### Plugin Installation for IntelliJ
-
-1. Go to Setting Icon. Click on the Plugins option on the IntelliJ platform.
+1. Go to the Settings icon. Click on the Plugins option.
 
 <img width="394" height="371" alt="image" src="https://github.com/user-attachments/assets/34ed6b63-8b45-466f-a9d4-a0668a5f5f9c" />
-<br>
 
-2. Go to Marketplace option and search "Adapts Assistant".
+2. Go to Marketplace and search "Adapts Assistant".
 
 <img width="1024" height="275" alt="image" src="https://github.com/user-attachments/assets/2bd285df-fad2-4aed-acda-73ef1771a015" />
 
@@ -120,147 +72,76 @@ Browsers: Chrome and Edge
 
 <img width="629" height="328" alt="image" src="https://github.com/user-attachments/assets/23af5204-12b4-471f-9dfc-3cedd358370a" />
 
-4. You will start seeing the Adapts icon on the left side panel. Click on it and the Login/signup screen will appear.
+4. The Adapts icon will appear on the left side panel.
 
 <img width="385" height="393" alt="image" src="https://github.com/user-attachments/assets/3b778829-a741-4688-9d67-3bba5ee00a55" />
 
-#### Account Setup
+</details>
 
-> ⚠️ Mac Users, please choose **Chrome** as your default browser before beginning the login process.
+<details>
+<summary><strong>Cursor — step-by-step screenshots</strong></summary>
 
-1. You will start seeing the Adapts icon on the left side panel. Click on it and the Login/signup screen will appear.
-
-<img width="387" height="352" alt="image" src="https://github.com/user-attachments/assets/f0c03625-4bb5-4b55-b232-0185e75c5c62" />
-
-2. Your admin should have added you as a user.
-
-- You can go straight to sign-in to access your adapts account.
-- Otherwise, click on the Sign Up option, and choose your SSO provider.
-
-**NOTE:**
-
-During the log-in you may see this dialogue box on the screen. Click on Allow.
-
-<img width="339" height="209" alt="image" src="https://github.com/user-attachments/assets/e6ad805d-111b-4f07-8074-6622ec393c45" />
-
-If you don't see the above dialog and the authentication still fails, then:
-
-1. Click on the Lock icon in the address bar.
-2. Check Permissions for this site.
-3. Make sure Local network access is set to Allowed.
-4. After this is done, close this window and re-login.
-
-<img width="365" height="265" alt="image" src="https://github.com/user-attachments/assets/a20546fc-a3c0-4dba-bd78-4517c7bfd6a7" />
-
-You should see the following notification at the center of your browser screen. You can now continue to IntelliJ
-
-<img width="640" height="386" alt="image" src="https://github.com/user-attachments/assets/bd1a75dd-ce0c-4240-9762-b52949ec2d4b" />
-
----
-
-### Cursor
-
-#### Plugin Installation for Cursor
-
-1. Click on the Marketplace Icon at the top of the left panel.
+1. Click on the Marketplace icon at the top of the left panel.
 
 <img width="350" height="300" alt="image" src="https://github.com/user-attachments/assets/603dc13b-9e88-47f9-b2a6-82fb58b8906c" />
 
-2. Once in the marketplace, search "Adapts Assistant".
+2. Search "Adapts Assistant".
 
 <img width="350" height="300" alt="image" src="https://github.com/user-attachments/assets/28afa995-c7a8-4f9f-9668-8c135de6d395" />
 
-3. Scroll down until you find the Adapts listing and click install.
+3. Find the Adapts listing and click install.
 
 <img width="350" height="423" alt="image" src="https://github.com/user-attachments/assets/01e3d98e-3558-4815-991e-2805ec5d92f8" />
 
 <img width="350" height="252" alt="image" src="https://github.com/user-attachments/assets/be0739b3-a9e9-42fa-a8a6-bc5b17d89419" />
 
-#### Account Setup
+</details>
 
-> ⚠️ Mac Users, please choose **Chrome** as your default browser before beginning the sign-in/sign-up process.
+<details>
+<summary><strong>VSCode — step-by-step screenshots</strong></summary>
 
-1. You will start seeing the Adapts icon in the left panel's dropdown . Click on it and the Login/signup screen will appear.
-
-<img width="350" height="250" alt="image" src="https://github.com/user-attachments/assets/d48bd00a-d5b0-4c33-a048-19643b40dcba" />
-
-<p align="center">↓</p>
-
-<img width="350" height="318" alt="image" src="https://github.com/user-attachments/assets/f0c03625-4bb5-4b55-b232-0185e75c5c62" />
-
-3. Your admin should have added you as a user.
-
-- You can go straight to sign-in to access your adapts account.
-- Otherwise, click on the Sign Up option, and choose your SSO provider.
-
-**NOTE:**
-
-During the log-in you may see this dialogue box on the screen. Click on Allow.
-
-<img width="350" height="216" alt="image" src="https://github.com/user-attachments/assets/e6ad805d-111b-4f07-8074-6622ec393c45" />
-
-If you don't see the above dialog and the authentication still fails, then:
-
-1. Click on the Lock icon in the address bar.
-2. Check Permissions for this site.
-3. Make sure Local network access is set to Allowed.
-4. After this is done, close this window and re-login.
-
-<img width="350" height="254" alt="image" src="https://github.com/user-attachments/assets/a20546fc-a3c0-4dba-bd78-4517c7bfd6a7" />
-
-You should see the following notification at the center of your browser screen. You can now continue to Cursor
-
-<img width="350" height="212" alt="image" src="https://github.com/user-attachments/assets/bd1a75dd-ce0c-4240-9762-b52949ec2d4b" />
-
----
-
-### VSCode
-
-#### Plugin Installation for VSCode
-
-1. Click on the Marketplace Icon in the left panel.
+1. Click on the Extensions icon in the left panel.
 
 <img width="350" height="358" alt="image" src="https://github.com/user-attachments/assets/7e396e51-87ff-4571-b8ed-9464f039c57c" />
 
-2. Once in the marketplace, search "Adapts". The Adapts app should be the first search result. Click on install.
+2. Search "Adapts" and click install.
 
 <img width="374" height="220" alt="image" src="https://github.com/user-attachments/assets/d3c6d009-88d7-4db1-804b-aa193ffa1ca2" />
 
-#### Account Setup
+</details>
 
-> ⚠️ Mac Users, please choose **Chrome** as your default browser before beginning the sign-in/sign-up process.
+---
 
-1. You will start seeing the Adapts icon in the left panel. Click on it and the Login/signup screen will appear.
+### Account Setup
 
-<img width="350" height="390" alt="image" src="https://github.com/user-attachments/assets/3213dca9-450c-4544-9a72-48041ee2ef33" />
+> ⚠️ **Mac users:** set **Chrome** as your default browser before beginning the login process.
 
-<p align="center">↓</p>
+1. Click the Adapts icon in your IDE's side panel. The Login/Signup screen will appear.
 
 <img width="350" height="318" alt="image" src="https://github.com/user-attachments/assets/f0c03625-4bb5-4b55-b232-0185e75c5c62" />
 
-3. Your admin should have added you as a user.
-
-- You can go straight to sign-in to access your adapts account.
-- Otherwise, click on the Sign Up option, and choose your SSO provider.
+2. Your admin should have added you as a user.
+   - Go straight to **Sign In** to access your account.
+   - Otherwise, click **Sign Up** and choose your SSO provider.
 
 **NOTE:**
 
-During the log-in you may see this dialogue box on your browser screen. Click on Allow.
+During login you may see this dialog — click **Allow**.
 
-<img width="350" height="216" alt="image" src="https://github.com/user-attachments/assets/e6ad805d-111b-4f07-8074-6622ec393c45" />
+<img width="339" height="209" alt="image" src="https://github.com/user-attachments/assets/e6ad805d-111b-4f07-8074-6622ec393c45" />
 
-If you don't see the above dialog and the authentication still fails, then:
+If the dialog doesn't appear and authentication still fails:
 
-1. Click on the Lock icon in the address bar.
-2. Check Permissions for this site.
-3. Make sure Local network access is set to Allowed.
-4. After this is done, close this window and re-login.
+1. Click the **Lock icon** in the address bar.
+2. Check **Permissions for this site**.
+3. Set **Local network access** to **Allowed**.
+4. Close the window and re-login.
 
-<img width="350" height="254" alt="image" src="https://github.com/user-attachments/assets/a20546fc-a3c0-4dba-bd78-4517c7bfd6a7" />
+<img width="365" height="265" alt="image" src="https://github.com/user-attachments/assets/a20546fc-a3c0-4dba-bd78-4517c7bfd6a7" />
 
-You should see the following notification at the center of your browser screen. You can now continue to Visual Studio Code
+You should see this confirmation in your browser. You can now return to your IDE.
 
-<img width="350" height="212" alt="image" src="https://github.com/user-attachments/assets/bd1a75dd-ce0c-4240-9762-b52949ec2d4b" />
+<img width="640" height="386" alt="image" src="https://github.com/user-attachments/assets/bd1a75dd-ce0c-4240-9762-b52949ec2d4b" />
 
 ---
 
@@ -268,45 +149,33 @@ You should see the following notification at the center of your browser screen. 
 
 Once logged in, you should see a chat window.
 
-1. In the top left corner of the chat window, click on Select wiki dropdown to set the context for any QnA by choosing one of the wikis generated by adapts.
+1. Click the **Select wiki** dropdown (top-left of the chat window) to choose which wiki to query.
 
 <img width="350" height="518" alt="image" src="https://github.com/user-attachments/assets/bf390920-9f62-448f-b4ba-58b7990e765b" />
 
-2. Select the wiki you are interested in and ask questions about anything in it.
+2. Select a wiki and start asking questions.
 
 <img width="350" height="525" alt="image" src="https://github.com/user-attachments/assets/2baef725-d56d-44e5-9bf7-29c8a195e92c" />
 
-After selecting the wiki, you will see the screen below.
-You can:
+From here you can:
 
-- Ask questions
-- Change LLM Model
+- Ask questions about the codebase
+- Change the LLM model
 
 <img width="353" height="721" alt="image" src="https://github.com/user-attachments/assets/a5c21630-5c83-4172-8f86-6b3f977e256e" />
 
-Additionally, you can also use the buttons hightlighted below to:
-
-- View Repo
-- View Wiki
-
+- View the source repo or the generated wiki
+  
 <img width="497" height="319" alt="image" src="https://github.com/user-attachments/assets/6be23611-0197-4450-b765-47edc5731810" />
 
-
-> ⚠️ As of version 1.0.4, you may choose one wiki in every chat. If you would like to ask questions about a new wiki, you will need to start a new chat. We are currently wokring on
-> releasing to allow multi-wiki selection in the same chat.
-
-Right above the chat window, you can see options to:
-
-- Start a new chat
-- View chat history
-- Change settings
-- Logout
+The toolbar above the chat window lets you start a new chat, view history, change settings, or log out.
 
 <img width="700" height="186" alt="image" src="https://github.com/user-attachments/assets/160d9317-59e3-41ba-a591-c8959a0e2dac" />
 
-Congratulations! you're all set!
+> ⚠️ On the plugins, you may choose one wiki per chat. To query a different wiki, start a new chat. Multi-wiki selection for richer context is available on the web app only at the moment.
 
-For further feedback please contact support@adapts.ai
+
+You're all set! For feedback, contact <support@adapts.ai>.
 
 ---
 
@@ -436,8 +305,27 @@ flowchart LR
 
 1. Visit [adapts.app](https://adapts.app)
 2. **Log in** with the **same e-mail** you use on GitHub
-3. Navigate to **Application Wiki's** ➡️ **Your Repo Name** ➡️ **Click on View**
+3. Navigate to **Application Wikis** ➡️ **Your Repo Name** ➡️ **Click on View**
 4. Enjoy your freshly generated Wiki!
+
+---
+
+## 🚀 Latest Releases
+
+<details>
+<summary><strong>v0.0.0 — Month DD, YYYY — Feature name placeholder</strong></summary>
+
+### What's new
+
+_Brief description of the feature or fix._
+
+### How to use
+
+1. Step one — describe the first action.
+2. Step two — describe the next action.
+3. Step three — describe the outcome.
+
+</details>
 
 ---
 
