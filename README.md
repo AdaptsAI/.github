@@ -15,20 +15,18 @@
 ## Contents
 
 - [What is Adapts?](#what-is-adapts)
-- [Getting Started — Chat Assistant](#getting-started-chat-assistant)
+- [Getting Started — Chat Assistant](#-getting-started-chat-assistant)
   - [Install the Plugin](#install-the-plugin)
   - [Account Setup](#account-setup)
   - [Using the Assistant](#how-to-use-the-adapts-assistant)
-- [Wiki Generation — Code to Wiki](#wiki-generation--code-to-wiki)
+- [Wiki Generation — Code to Wiki](#-wiki-generation--code-to-wiki)
   - [What the workflow does](#what-the-workflow-does)
-  - [Quick-start](#quick-start)
-  - [Customisation Tips](#customisation-tips)
-  - [Troubleshooting](#troubleshooting)
-  - [Security Considerations](#security-considerations)
-  - [Accessing your Wiki](#accessing-your-wiki)
-- [Latest Releases](#latest-releases)
-- [Support / Questions](#support--questions)View the source repo or the generated wiki
-
+  - [Quick-start](#-quick-start)
+  - [Customisation Tips](#-customisation-tips)
+  - [Troubleshooting](#-troubleshooting)
+  - [Security Considerations](#-security-considerations)
+  - [Accessing your Wiki](#-accessing-your-wiki)
+  - [Support / Questions](#-support--questions)
 
 ---
 
@@ -43,17 +41,17 @@ No context-switching. No stale docs. Just merge and go.
 
 ---
 
-## 💬 Getting Started - Chat Assistant
+## 💬 Getting Started-Chat Assistant
 
 Chat with your wikis straight from your IDE.
 
 ### Install the Plugin
 
-| IDE | How to install | Min version | Latest Version |
-| --- | -------------- | ----------- | ----------- | 
-| **IntelliJ** | *Settings ▸ Plugins ▸ Marketplace* — search **"Adapts Assistant"** | 2025+ | 1.0.6
-| **Cursor** | Marketplace panel — search **"Adapts Assistant"** | — | 0.0.3
-| **VSCode** | Extensions panel — search **"Adapts"** | — | 0.0.3
+| IDE | How to install | Latest Adapts Version |
+| --- | -------------- | ----------- | 
+| **IntelliJ** | *Settings ▸ Plugins ▸ Marketplace* — search **"Adapts Assistant"** | 1.0.6
+| **Cursor** | Marketplace panel — search **"Adapts Assistant"** | 0.0.3
+| **VSCode** | Extensions panel — search **"Adapts"** | 0.0.3
 
 <details>
 <summary><strong>IntelliJ — step-by-step screenshots</strong></summary>
@@ -311,65 +309,57 @@ flowchart LR
 ---
 ## 🚀 Latest Releases
 
+### Context Enhancement: Multi-wiki chat context
+
+Users can now choose up to 3 wikis to include in the assistant's chat context for more relevant answers.
+
 <details>
-<summary><strong>Context Enhancement: Multi-wiki chat context</strong></summary>
+<summary><strong>Release notes & how to use</strong></summary>
 
-### What's new
+**What's new** — Context Enhancement: Users can now choose up to 3 different wikis to include in their assistant's chat context to get more relevant output.
 
-_Context Enhancement: Users can now choose upto 3 different wikis to include in their assistant's chat context to get more relevant output._
+**Why we added this** — With wider context it's easier for developers to avoid breaking API contracts and duplicating business logic, and for architects to avoid drift and cross-service tight coupling.
 
-### Why did we add this? 
+**Scope** — Limited to the web app for now (as of February 25, 2026). Not applicable to existing conversations.
 
-With an even wider context it will be easier for 
-> Developers to avoid things like breaking API contracts and duplicating business logic across services 
-> Architects to avoid architecture drift and cross-service tight coupling
+**How to use**
 
-### Scope
-
-This is limited to the web app in the absence of future updates after February 25, 2026. 
-This feature will not be applicable to old conversations. 
-
-### How to use
-
-1. Open a new chat conversation. The wiki selection dropdown now says "Select one of more wikis."
+1. Open a new chat conversation. The wiki selection dropdown now says "Select one or more wikis."
 
    <img width="350" height="137.5" alt="image" src="https://github.com/user-attachments/assets/50f2a029-dd84-4926-99f6-2dbc8bc94541" />
 
-3. If you know your wiki names you can type its name to search and select, as show below
+2. Type a wiki name to search and select, or hover over service names to choose the wiki(s) you want.
 
    <img width="350" height="202.4" alt="image" src="https://github.com/user-attachments/assets/c253b955-f594-4643-9c20-d1dc14a1251b" />
 
-  Or, you can hover over service names to choose the wiki(s) you want to include as below
+   <img width="350" height="169.15" alt="image" src="https://github.com/user-attachments/assets/08612737-df5c-4dbf-9803-16e80d53478a" />
 
-  <img width="350" height="169.15" alt="image" src="https://github.com/user-attachments/assets/08612737-df5c-4dbf-9803-16e80d53478a" />
-
-4. Once you choose your wikis and model, you can continue as usual.
+3. Once you've chosen your wikis and model, continue as usual.
 
 </details>
 
+
+
+### Wiki Generation: Workflow Documentation
+
+Workflow documentation automatically traces your codebase to capture end-to-end workflows, including functions, inputs, outputs, and business logic.
+
 <details>
-<summary><strong>Wiki Generation: Workflow Documentation</strong></summary>
+<summary><strong>Release notes & how to use</strong></summary>
 
-### What's new
+**What's new** — A 'Workflow Documentation' section has been added to every wiki, tracing through your codebase to document workflows, functions, inputs, outputs, and business logic.
 
-_Workflow documentation automatically traces through your codebase to capture end-to-end workflows, documenting all functions, inputs, outputs, and business logic involved in each flow._
+**Why we added this**
 
-### Why did we add this? 
+1. **Feature sunsetting & migration** — Identify all components involved in a feature for safer modernization.
+2. **Technical debt cleanup** — Find dead code (functions/classes not referenced in any workflow) and remove it safely.
+3. **Architecture understanding** — See how the application works at a detailed level across the repo.
 
-1. Feature Sunsetting & Migration: Identify all components involved in specific features, making it easier to plan modernization efforts and ensure no business logic is missed during migrations.
-2. Technical Debt Cleanup: Discover dead code—functions and classes that aren't referenced in any workflows—so you can safely remove unused code without business impact.
-3. Architecture Understanding: Gain clear visibility into how your application works at a detailed level, helping developers and product managers understand complex workflows across your entire repository.
+**Scope** — Applies to past and present wikis. Contact support@adapts.ai if you don't see workflow documentation.
 
-### Scope
-
-This is applicable to past and present wikis. Please contact support@adapts.ai in-case you don't see workflow documentation. 
-
-### How to use
-
-1. A 'Workflow Documentation' section has been added to every wiki. Please see screenshot below for reference:
+**How to use** — Open any wiki and scroll to the *Workflow Documentation* section.
 
 <img width="350" height="149" alt="image" src="https://github.com/user-attachments/assets/9446749d-95a1-49d7-90ad-c131c8da438b" />
-
 
 </details>
 
