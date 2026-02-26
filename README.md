@@ -26,7 +26,8 @@
   - [Troubleshooting](#-troubleshooting)
   - [Security Considerations](#-security-considerations)
   - [Accessing your Wiki](#-accessing-your-wiki)
-  - [Support / Questions](#-support--questions)
+- [Latest Releases](#-latest-releases)
+- [Support / Questions](#-support--questions)
 
 ---
 
