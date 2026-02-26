@@ -43,7 +43,7 @@ No context-switching. No stale docs. Just merge and go.
 
 ---
 
-## 💬Getting Started Chat Assistant
+## 💬 Getting Started - Chat Assistant
 
 Chat with your wikis straight from your IDE.
 
