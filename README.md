@@ -1,6 +1,6 @@
 <p align="center">
   <picture>
-    <img src="./images/logo-light.png" alt="adapts logo" width="350" />
+    <img src="./images/logo-light.png?v=2" alt="adapts logo" width="350" />
   </picture>
 </p>
 
@@ -61,20 +61,20 @@ Browsers supported: Chrome and Edge
 
 1. Go to the Settings icon. Click on the Plugins option.
 
-<img width="350" alt="image" src="./images/settings-panel-with-plugins-search.png" />
-
+<img width="350" alt="image" src="./images/screenshot-of-a-computer-interface.png?v=2" />
+<br>
 2. Go to Marketplace and search "Adapts Assistant".
 
-<img width="350" alt="image" src="./images/screenshot-of-a-marketplace-search-for-adapts-assistant.png" />
-
+<img width="350" alt="image" src="./images/settings-panel-with-plugins-search.png?v=2" />
+<br>
 3. Click "Apply" and then "Ok".
 
-<img width="350" alt="image" src="./images/software-configuration-window.png" />
-
+<img width="350" alt="image" src="./images/software-configuration-window.png?v=2" />
+<br>
 4. The Adapts icon will appear on the left side panel.
 
-<img width="350" alt="image" src="./images/settings-menu-for-adapts-assistant-plugin.png" />
-
+<img width="350" alt="image" src="./images/screenshot-of-a-software-interface.png?v=2" />
+<br>
 </details>
 
 <details>
@@ -82,17 +82,22 @@ Browsers supported: Chrome and Edge
 
 1. Click on the Marketplace icon at the top of the left panel.
 
-<img width="350" alt="image" src="./images/app-store-page-with-multiple-ai-agents.png" />
-
+<img width="350" alt="image" src="./images/code-editor-displaying-project-directory.png?v=2" />
+<br>
 2. Search "Adapts Assistant".
 
-<img width="350" alt="image" src="./images/software-marketplace-with-search-results.png" />
 
+<img width="350" alt="image" src="./images/screenshot-of-code-extension-marketplace.png?v=2" />
+<br>
 3. Find the Adapts listing and click install.
 
-<img width="350" alt="image" src="./images/visual-studio-code-interface-displaying-adapts-option.png" />
+<img width="350" alt="image" src="./images/adapts-application-information.png?v=2" />
+<br>
+4. Once installed, you should see the adapts icon inside the left panel's dropdown. Protip: Pin it to have access to it at all times.
 
-<img width="350" alt="image" src="./images/adapts-application-information.png" />
+<img width="350" alt="image" src="./images/visual-studio-code-interface-displaying-adapts-option.png?v=2" />
+
+<br><br>
 
 </details>
 
@@ -101,11 +106,11 @@ Browsers supported: Chrome and Edge
 
 1. Click on the Extensions icon in the left panel.
 
-<img width="350" alt="image" src="./images/vs-code-extensions-menu-displayed.png" />
+<img width="350" alt="image" src="./images/vs-code-extensions-menu-displayed.png?v=2" />
 
 2. Search "Adapts" and click install.
 
-<img width="350" alt="image" src="./images/screenshot-of-code-extension-marketplace.png" />
+<img width="350" alt="image" src="./images/screenshot-of-code-extension-marketplace.png?v=2" />
 
 </details>
 
@@ -117,7 +122,7 @@ Browsers supported: Chrome and Edge
 
 1. Click the Adapts icon in your IDE's side panel. The Login/Signup screen will appear.
 
-<img width="350" alt="image" src="./images/login-screen-for-adapts-with-google-and-microsoft-options.png" />
+<img width="350" alt="image" src="./images/login-screen-for-adapts-with-google-and-microsoft-options.png?v=2" />
 
 2. Your admin should have added you as a user.
    - Go straight to **Sign In** to access your account.
@@ -127,7 +132,7 @@ Browsers supported: Chrome and Edge
 
 During login you may see this dialog — click **Allow**.
 
-<img width="350" alt="image" src="./images/february-15-2026-7-02-18-pm-screenshot.png" />
+<img width="350" alt="image" src="./images/permissiondeniedbrowser.png?v=2" />
 
 If the dialog doesn't appear and authentication still fails:
 
@@ -136,11 +141,11 @@ If the dialog doesn't appear and authentication still fails:
 3. Set **Local network access** to **Allowed**.
 4. Close the window and re-login.
 
-<img width="350" alt="image" src="./images/february-16-2026-11-19-53-pm-screenshot.png" />
+<img width="350" alt="image" src="./images/permissiondeniedsolutionbrowser.png?v=2" />
 
 You should see this confirmation in your browser. You can now return to your IDE.
 
-<img width="350" alt="image" src="./images/web-browser-sign-in-confirmation.png" />
+<img width="350" alt="image" src="./images/web-browser-sign-in-confirmation.png?v=2" />
 
 ---
 
@@ -150,28 +155,29 @@ Once logged in, you should see a chat window.
 
 1. Click the **Select wiki** dropdown (top-left of the chat window) to choose which wiki to query.
 
-<img width="350" alt="image" src="./images/chat-interface-with-wiki-selection.png" />
+<img width="350" alt="image" src="./images/dropdown-menu-interface.png?v=2" />
 
 2. Select a wiki and start asking questions.
 
-<img width="350" alt="image" src="./images/interface-showing-chat-tool-with-selected-wiki.png" />
+<img width="350" alt="image" src="./images/interface-with-payment-options.png?v=2" />
+
+You can also choose multiple wikis, as show below.
+
+<img width="350" alt="image" src="./images/dropdown-menu-interface-showing-search-results.png?v=2" />
 
 From here you can:
 
 - Ask questions about the codebase
 - Change the LLM model
 
-<img width="350" alt="image" src="./images/software-interface-with-chatbot-and-code-window.png" />
-
-- View the source repo or the generated wiki
-  
-<img width="350" alt="image" src="./images/adapts-software-interface.png" />
+<img width="350" alt="image" src="./images/screenshot-of-a-chat-interface.png?v=2" />
 
 The toolbar above the chat window lets you start a new chat, view history, change settings, or log out.
 
-<img width="350" alt="image" src="./images/digital-interface-with-icon-menu.png" />
+<img width="350" alt="image" src="./images/digital-interface-with-icon-menu.png?v=2" />
 
-> ⚠️ On the plugins, you may choose one wiki per chat. To query a different wiki, start a new chat. Multi-wiki selection for richer context is available on the web app only at the moment.
+<br>
+
 
 
 You're all set! For feedback, contact <support@adapts.ai>.
@@ -327,13 +333,12 @@ Users can now choose up to 3 wikis to include in the assistant's chat context fo
 
 1. Open a new chat conversation. The wiki selection dropdown now says "Select one or more wikis."
 
-   <img width="350" alt="image" src="./images/select-one-or-more-wikis.png" />
+   <img width="350" alt="image" src="./images/select-one-or-more-wikis.png?v=2" />
 
 2. Type a wiki name to search and select, or hover over service names to choose the wiki(s) you want.
 
-   <img width="350" alt="image" src="./images/dropdown-menu-interface-showing-search-results.png" />
+   <img width="350" alt="image" src="./images/dropdown-menu-interface-showing-search-results.png?v=2" />
 
-   <img width="350" alt="image" src="./images/dropdown-menu-interface.png" />
 
 3. Once you've chosen your wikis and model, continue as usual.
 
@@ -360,7 +365,7 @@ Workflow documentation automatically traces your codebase to capture end-to-end 
 
 **How to use** — Open any wiki and scroll to the *Workflow Documentation* section.
 
-<img width="350" alt="image" src="./images/software-documentation-interface.png" />
+<img width="350" alt="image" src="./images/software-documentation-interface.png?v=2" />
 
 </details>
 
