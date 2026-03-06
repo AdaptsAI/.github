@@ -4,11 +4,8 @@
   </picture>
 </p>
 
-<h1 align="center">Adapts</h1>
-<p align="center">
-  Chat with your wikis straight from your IDE &nbsp;·&nbsp; Auto-generate Wiki-style docs on every merge<br/>
-  <a href="https://adapts.wiki" target="_blank">adapts.wiki</a> &nbsp;|&nbsp; <a href="https://adapts.app" target="_blank">adapts.app</a>
-</p>
+<h1 align="center"><a href="https://adapts.app" target="_blank">Adapts</a></h1>
+<p align="center">Chat with your wikis straight from your IDE &nbsp;·&nbsp; Auto-generate Wiki-style docs on every merge<br/></p>
 
 ---
 
@@ -55,7 +52,7 @@ Chat with your wikis straight from your IDE.
 | **VSCode** | Extensions panel — search **"Adapts"** | 0.0.3
 
 <details>
-<summary><strong>IntelliJ — step-by-step screenshots</strong></summary>
+<summary><strong>IntelliJ — step-by-step screenshots</strong> <em>(click to expand)</em></summary>
 
 Browsers supported: Chrome and Edge
 
@@ -78,7 +75,7 @@ Browsers supported: Chrome and Edge
 </details>
 
 <details>
-<summary><strong>Cursor — step-by-step screenshots</strong></summary>
+<summary><strong> Cursor — step-by-step screenshots</strong> <em>(click to expand)</em></summary>
 
 1. Click on the Marketplace icon at the top of the left panel.
 
@@ -102,7 +99,7 @@ Browsers supported: Chrome and Edge
 </details>
 
 <details>
-<summary><strong>VSCode — step-by-step screenshots</strong></summary>
+<summary><strong> VSCode — step-by-step screenshots</strong> <em>(click to expand)</em></summary>
 
 1. Click on the Extensions icon in the left panel.
 
@@ -251,7 +248,7 @@ flowchart LR
    | `ENTERPRISE_READ_TOKEN` | Fine-grained PAT (org admin) **or** GitHub App installation token |
 
    <details>
-   <summary><strong>SSO note</strong></summary>
+   <summary><strong>🔐 SSO note</strong> <em>(click to expand)</em></summary>
    If your org enforces SAML/OIDC SSO, remember to <strong>authorise</strong> the PAT after creating it.
    </details>
 
@@ -266,7 +263,7 @@ flowchart LR
 ---
 
 <details>
-<summary><strong>⚙️ Environment Variables</strong></summary>
+<summary><strong>⚙️ Environment Variables</strong> <em>(click to expand)</em></summary>
 
 | Name                       | Source                         | Purpose                                          |
 | -------------------------- | ------------------------------ | ------------------------------------------------ |
@@ -321,7 +318,7 @@ flowchart LR
 Users can now choose up to 3 wikis to include in the assistant's chat context for more relevant answers.
 
 <details>
-<summary><strong>Release notes & how to use</strong></summary>
+<summary><strong>📋 Release notes & how to use</strong> <em>(click to expand)</em></summary>
 
 **What's new** — Context Enhancement: Users can now choose up to 3 different wikis to include in their assistant's chat context to get more relevant output.
 
@@ -351,7 +348,7 @@ Users can now choose up to 3 wikis to include in the assistant's chat context fo
 Workflow documentation automatically traces your codebase to capture end-to-end workflows, including functions, inputs, outputs, and business logic.
 
 <details>
-<summary><strong>Release notes & how to use</strong></summary>
+<summary><strong>📋 Release notes & how to use</strong> <em>(click to expand)</em></summary>
 
 **What's new** — A 'Workflow Documentation' section has been added to every wiki, tracing through your codebase to document workflows, functions, inputs, outputs, and business logic.
 
